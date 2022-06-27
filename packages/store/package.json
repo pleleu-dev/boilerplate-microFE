@@ -1,0 +1,22 @@
+{
+  "name": "store",
+  "version": "0.0.0",
+  "main": "./index.tsx",
+  "module": "./dist/index.mjs",
+  "types": "./index.tsx",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup index.tsx --format esm,cjs --dts --external react",
+    "dev": "tsup index.tsx --format esm,cjs --watch --dts --external react"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "tsconfig": "*",
+    "tsup": "^5.12.4",
+    "typescript": "^4.5.3"
+  },
+  "dependencies": {
+    "zustand": "^4.0.0-rc.1"
+  }
+}

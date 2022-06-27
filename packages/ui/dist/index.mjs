@@ -29,7 +29,17 @@ var Table = () => {
     className: "border-4 border-dashed border-gray-200 rounded-lg h-96"
   })));
 };
+
+// Button.tsx
+import * as React3 from "react";
+var Button = ({ handleClick, label }) => {
+  return /* @__PURE__ */ React3.createElement("button", {
+    className: "mt-3 p-4 rounded-xl bg-gray-200 hover:bg-gray-400 cursor-pointer",
+    onClick: handleClick
+  }, label);
+};
 export {
+  Button,
   Header,
   Table
 };

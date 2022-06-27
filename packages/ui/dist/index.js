@@ -23,6 +23,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // index.tsx
 var ui_exports = {};
 __export(ui_exports, {
+  Button: () => Button,
   Header: () => Header,
   Table: () => Table
 });
@@ -57,8 +58,18 @@ var Table = () => {
     className: "border-4 border-dashed border-gray-200 rounded-lg h-96"
   })));
 };
+
+// Button.tsx
+var React3 = __toESM(require("react"));
+var Button = ({ handleClick, label }) => {
+  return /* @__PURE__ */ React3.createElement("button", {
+    className: "mt-3 p-4 rounded-xl bg-gray-200 hover:bg-gray-400 cursor-pointer",
+    onClick: handleClick
+  }, label);
+};
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  Button,
   Header,
   Table
 });

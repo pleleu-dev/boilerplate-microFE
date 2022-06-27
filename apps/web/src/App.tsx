@@ -2,7 +2,8 @@ import React, {lazy, Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import { Routes, Route, Link, BrowserRouter, Outlet} from 'react-router-dom';
 
-import { Header } from 'ui';
+import { useStore } from 'store';
+import { Header, Button } from 'ui';
 
 import "./index.scss";
 
@@ -11,10 +12,18 @@ const RemoteBoop = lazy(()=> import('boop/App'));
 
 
 
-const Web = () => (
+const Web = () => {
+  const {counter, increment} = useStore()
+  return (
   <div className="mt-10 text-3xl mx-auto max-w-6xl">
     <Header /> 
-    <h1>WEB</h1>
+
+    <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold text-gray-900">WEB</h2>
+        <p>Likes : {counter}</p>
+    </div>
+
+    <Button handleClick={increment} label = "Easy like"/>
     <nav className="mt-10 text-3xl mx-auto max-w-6xl">
       <Link to="boop">Boop</Link> |{" "}
       <Link to="ping">ping</Link>
@@ -23,7 +32,7 @@ const Web = () => (
         <Outlet />
      </div>
   </div>
-)
+)}
 
 const App = () => (
     <BrowserRouter>
